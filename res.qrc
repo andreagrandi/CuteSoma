@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/MainPage.qml</file>
+        <file>qml/ChannelsDelegate.qml</file>
+        <file>qml/ChannelsModel.qml</file>
     </qresource>
 </RCC>

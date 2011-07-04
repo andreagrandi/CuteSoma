@@ -5,12 +5,14 @@ Page {
     id: mainPage
     tools: commonTools
 
-    ChannelsDelegate { id: channelsDelegate }
-    ChannelsModel { id: channelsModel }
+    ChannelsDelegate { id: delegate }
+    ChannelsModel { id: model }
 
     ListView
     {
-         id: channelsView; model: channelsModel; delegate: channelsDelegate;
+         id: channelsView;
+         model: model;
+         delegate: delegate;
          width: parent.width; height: parent.height; x: 0; cacheBuffer: 100;
     }
 }
