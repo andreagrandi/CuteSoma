@@ -17,11 +17,15 @@ PageStackWindow {
         }
     }
 
-    Menu {
+    Menu
+    {
         id: myMenu
         visualParent: pageStack
-        MenuLayout {
-            MenuItem { text: "Sample menu item" }
+        MenuLayout
+        {
+            MenuItem { text: "Preferences" }
+            MenuItem { text: "About" }
+            MenuItem { text: "Quit" }
         }
     }
 }
