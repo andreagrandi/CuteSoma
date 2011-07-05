@@ -7,7 +7,7 @@ Component
 
     Rectangle
     {
-        width: 480
+        width: mainPage.width
         height: 100
         color: "#f0f1f2"
         id: channels
@@ -23,8 +23,8 @@ Component
             id: thumb
             source: channelImage
             anchors.verticalCenter: parent.verticalCenter
-            width:80
-            height: 80
+            width:90
+            height: 90
         }
 
         Item
@@ -35,11 +35,12 @@ Component
 
         Column
         {
-            height: 95
-            width: 400
+            height: 98
+            width: parent.width - 95
             anchors.top: parent.top
             anchors.right: parent.right
             anchors.topMargin: 10
+            anchors.leftMargin: 85
 
             Label
             {
@@ -60,6 +61,13 @@ Component
                 text: song;
                 font.pixelSize: 20;
                 font.weight: Font.Bold;
+            }
+
+            Image
+            {
+                source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
+                anchors.right: parent.right;
+                anchors.verticalCenter: parent.verticalCenter
             }
         }
 
