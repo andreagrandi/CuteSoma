@@ -47,27 +47,27 @@ Component
             width: parent.width - 95
             anchors.top: parent.top
             anchors.right: parent.right
-            anchors.topMargin: 10
+            anchors.topMargin: 5
             anchors.leftMargin: 85
 
             Label
             {
                 text: channelName;
-                font.pixelSize: 26;
+                font.pixelSize: 24;
                 font.weight: Font.Bold;
             }
 
             Label
             {
                 text: channelDescription;
-                font.pixelSize: 22;
+                font.pixelSize: 20;
                 font.weight: Font.Light;
             }
 
             Label
             {
                 text: song;
-                font.pixelSize: 20;
+                font.pixelSize: 18;
                 font.weight: Font.Bold;
             }
 
@@ -75,7 +75,7 @@ Component
             {
                 source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
                 anchors.right: parent.right;
-                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenter: parent.verticalCenter //FIXME: how to center eliminating the warning at runtime?
             }
         }
 
@@ -90,8 +90,8 @@ Component
         MouseArea
         {
             id: mouseArea
-            anchors.fill: background
-            onClicked: { console.debug("channel clicked")}
+            anchors.fill: parent
+            onPressed: { console.debug("channel clicked") }
         }
     }
 }
