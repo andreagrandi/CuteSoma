@@ -12,6 +12,14 @@ Component
         color: "#f0f1f2"
         id: channels
 
+        BorderImage
+        {
+            id: background
+            anchors.fill: parent
+            visible: mouseArea.pressed
+            source: "image://theme/meegotouch-list-background-pressed-center"
+        }
+
         Item
         {
             width: 10
@@ -73,10 +81,17 @@ Component
 
         Rectangle
         {
-                anchors.bottom: parent.bottom
-                height: 1
-                color: "#e4e5e7"
-                width: channels.width
+            anchors.bottom: parent.bottom
+            height: 1
+            color: "#e4e5e7"
+            width: channels.width
+        }
+
+        MouseArea
+        {
+            id: mouseArea
+            anchors.fill: background
+            onClicked: { console.debug("channel clicked")}
         }
     }
 }
