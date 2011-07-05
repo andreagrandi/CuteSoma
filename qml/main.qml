@@ -29,7 +29,8 @@ PageStackWindow {
         {
             MenuItem { text: "Preferences" }
             MenuItem { text: "About" }
-            MenuItem { text: "Quit" }
+            MenuItem { text: "Quit"
+                        onClicked: Qt.quit()}
         }
     }
 }
