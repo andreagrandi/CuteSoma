@@ -91,7 +91,7 @@ Component
         {
             id: mouseArea
             anchors.fill: parent
-            onPressed: { console.debug("channel clicked") }
+            onPressed: { console.debug(channelName + " clicked") }
         }
     }
 }
