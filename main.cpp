@@ -11,8 +11,10 @@ int main(int argc, char *argv[])
 
 //#if defined MEEGO_EDITION
     view.showFullScreen();
+//    qDebug("MEEGO");
 //#else
 //    view.showNormal();
+//    qDebug("DESKTOP");
 //#endif
 
     return app.exec();
