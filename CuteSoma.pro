@@ -38,7 +38,9 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/compat \
     qtc_packaging/debian_harmattan/changelog \
     qml/ChannelsDelegate.qml \
-    qml/ChannelsModel.qml
+    qml/ChannelsModel.qml \
+    qml/ChannelPlayer.qml \
+    qml/About.qml
 
 RESOURCES += \
     res.qrc

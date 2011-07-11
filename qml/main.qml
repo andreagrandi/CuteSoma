@@ -1,11 +1,14 @@
 import QtQuick 1.0
 import com.meego 1.0
 
-PageStackWindow {
+PageStackWindow
+{
     id: appWindow
 
     initialPage: mainPage
     MainPage { id: mainPage }
+
+    About { id: aboutPage }
 
     ToolBarLayout
     {
@@ -28,7 +31,8 @@ PageStackWindow {
         MenuLayout
         {
             MenuItem { text: "Preferences" }
-            MenuItem { text: "About" }
+            MenuItem { text: "About"
+                onClicked: { pageStack.push(aboutPage); }}
             MenuItem { text: "Quit"
                         onClicked: Qt.quit()}
         }

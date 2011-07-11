@@ -4,5 +4,9 @@
         <file>qml/MainPage.qml</file>
         <file>qml/ChannelsDelegate.qml</file>
         <file>qml/ChannelsModel.qml</file>
+        <file>qml/ChannelPlayer.qml</file>
+        <file>CuteSoma_80x80.svg</file>
+        <file>qml/About.qml</file>
+        <file>CuteSoma_180x180.png</file>
     </qresource>
 </RCC>
