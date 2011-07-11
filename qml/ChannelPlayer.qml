@@ -94,7 +94,6 @@ Page
             Button
             {
                 id: playStopButtonL
-                width: radioImageL.width
 
                 Image
                 {
