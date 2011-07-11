@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
 
     QObject::connect((QObject*)view.engine(), SIGNAL(quit()), &app, SLOT(quit()));
 
-    //view.showFullScreen();
-    view.showNormal();
+    view.showFullScreen();
+    //view.showNormal();
+
     return app.exec();
 }
