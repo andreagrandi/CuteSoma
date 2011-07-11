@@ -8,6 +8,8 @@ Page
 
     Item
     {
+        id: channelHorizontalLayout
+        visible: true
         anchors.verticalCenterOffset: 5
         anchors.left: parent.left
 
@@ -77,6 +79,52 @@ Page
             }
         }
     }
+
+    Item
+    {
+        id: channelVerticalLayout
+        visible: false
+        anchors.verticalCenterOffset: 5
+        anchors.left: parent.left
+
+        Image
+        {
+            id: radioImageV
+            source: channelImage
+            width: 360
+            height: 360
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+        }
+
+    }
+
+    states: [
+            State {
+                name: "inLandscape"
+                when: !appWindow.inPortrait
+                PropertyChanges {
+                    target: channelHorizontalLayout
+                    visible: true
+                }
+                PropertyChanges {
+                    target: channelVerticalLayout
+                    visible: false
+                }
+            },
+            State {
+                name: "inPortrait"
+                when: appWindow.inPortrait
+                PropertyChanges {
+                    target: channelHorizontalLayout
+                    visible: false
+                }
+                PropertyChanges {
+                    target: channelVerticalLayout
+                    visible: true
+                }
+            }
+        ]
 
     ToolBarLayout
     {
