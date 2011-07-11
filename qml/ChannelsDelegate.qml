@@ -87,11 +87,14 @@ Component
             width: channels.width
         }
 
+        ChannelPlayer {id: channelPlayer }
+
         MouseArea
         {
             id: mouseArea
             anchors.fill: parent
-            onPressed: { console.debug(channelName + " clicked") }
+            onClicked: { console.debug(channelName + " clicked");
+                pageStack.push(channelPlayer)}
         }
     }
 }

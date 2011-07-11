@@ -9,6 +9,7 @@ PageStackWindow
     MainPage { id: mainPage }
 
     About { id: aboutPage }
+    ChannelPlayer { id: channelPlayer }
 
     ToolBarLayout
     {

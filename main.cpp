@@ -9,8 +9,11 @@ int main(int argc, char *argv[])
 
     QObject::connect((QObject*)view.engine(), SIGNAL(quit()), &app, SLOT(quit()));
 
+//#if defined MEEGO_EDITION
     view.showFullScreen();
-    //view.showNormal();
+//#else
+//    view.showNormal();
+//#endif
 
     return app.exec();
 }
