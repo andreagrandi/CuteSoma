@@ -8,88 +8,144 @@ Page
 
     Item
     {
-        id: channelHorizontalLayout
+        id: channelLandscapeLayout
         visible: true
-        anchors.verticalCenterOffset: 5
         anchors.left: parent.left
 
-        Image
+        Item
         {
-            id: radioImage
-            source: channelImage
-            width: 300
-            height: 300
-            anchors.left: parent.left
-            anchors.leftMargin: 10
+            id: songItemL
+            anchors.top: parent.bottom
+            anchors.topMargin: 10
+
+            Image
+            {
+                id: radioImageL
+                source: channelImage
+                width: 300
+                height: 300
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+            }
+
+            Item
+            {
+                anchors.left: radioImageL.right
+                anchors.leftMargin: 10
+
+                Label
+                {
+                    id: nameLabelL
+                    text: channelName;
+                    font.pixelSize: 34;
+                    font.weight: Font.Bold;
+                }
+
+                Label
+                {
+                    id: djLabelL
+                    text: "Dj: " + channelDj;
+                    font.pixelSize: 25;
+                    font.weight: Font.Light;
+                    anchors.top: nameLabelL.bottom
+                    anchors.topMargin: 10
+                }
+
+                Label
+                {
+                    id: descriptionLabelL
+                    text: channelDescription;
+                    font.pixelSize: 30;
+                    font.weight: Font.Light;
+                    width: channelPlayer.width - radioImageL.width;
+                    wrapMode: "WordWrap";
+                    anchors.top: djLabelL.bottom
+                    anchors.topMargin: 10
+                }
+
+                Label
+                {
+                    id: listenersLabelL
+                    text: "Listeners: " + channelListeners;
+                    font.pixelSize: 25;
+                    font.weight: Font.Light;
+                    anchors.top: descriptionLabelL.bottom
+                    anchors.topMargin: 10
+                }
+
+                Label
+                {
+                    id: songLabelL
+                    text: song;
+                    font.pixelSize: 25;
+                    font.weight: Font.Bold;
+                    anchors.top: listenersLabelL.bottom
+                    anchors.topMargin: 10
+                }
+            }
         }
 
         Item
         {
-            anchors.left: radioImage.right
-            anchors.leftMargin: 10
+            id: controlRowL
+            anchors.top: parent.top
+            anchors.topMargin: radioImageL.height + 20
 
-            Label
+            Button
             {
-                id: nameLabel
-                text: channelName;
-                font.pixelSize: 34;
-                font.weight: Font.Bold;
+                id: playStopButtonL
+                width: radioImageL.width
+
+                Image
+                {
+                    id: imgPlayL
+                    anchors.centerIn: parent
+                    visible: false
+                    source: "image://theme/icon-m-toolbar-mediacontrol-play" + (theme.inverted ? "-inverse" : "")
+                }
+
+                Image
+                {
+                    id: imgPauseL
+                    anchors.centerIn: parent
+                    source: "image://theme/icon-m-toolbar-mediacontrol-pause" + (theme.inverted ? "-inverse" : "")
+                }
+
+                onClicked:
+                {
+                    if (imgPlayL.visible)
+                    {
+                        imgPlayL.visible = false;
+                        imgPauseL.visible = true;
+                    }
+                    else
+                    {
+                        imgPlayL.visible = true;
+                        imgPauseL.visible = false;
+                    }
+                }
             }
 
             Label
             {
-                id: djLabel
-                text: "Dj: " + channelDj;
-                font.pixelSize: 25;
-                font.weight: Font.Light;
-                anchors.top: nameLabel.bottom
-                anchors.topMargin: 10
-            }
-
-            Label
-            {
-                id: descriptionLabel
-                text: channelDescription;
-                font.pixelSize: 30;
-                font.weight: Font.Light;
-                width: channelPlayer.width - radioImage.width;
-                wrapMode: "WordWrap";
-                anchors.top: djLabel.bottom
-                anchors.topMargin: 10
-            }
-
-            Label
-            {
-                id: listenersLabel
-                text: "Listeners: " + channelListeners;
-                font.pixelSize: 25;
-                font.weight: Font.Light;
-                anchors.top: descriptionLabel.bottom
-                anchors.topMargin: 10
-            }
-
-            Label
-            {
-                id: songLabel
-                text: song;
-                font.pixelSize: 25;
-                font.weight: Font.Bold;
-                anchors.top: listenersLabel.bottom
-                anchors.topMargin: 10
+                id: counterLabelL
+                text: "00:00"
+                anchors.left: playStopButtonL.right
+                anchors.leftMargin: playStopButtonL.width + 100
             }
         }
     }
 
     Item
     {
-        id: channelVerticalLayout
+        id: channelPortraitLayout
         visible: false
         anchors.verticalCenterOffset: 5
         anchors.left: parent.left
 
         Image
         {
-            id: radioImageV
+            id: radioImageP
             source: channelImage
             width: 360
             height: 360
@@ -104,11 +160,11 @@ Page
                 name: "inLandscape"
                 when: !appWindow.inPortrait
                 PropertyChanges {
-                    target: channelHorizontalLayout
+                    target: channelLandscapeLayout
                     visible: true
                 }
                 PropertyChanges {
-                    target: channelVerticalLayout
+                    target: channelPortraitLayout
                     visible: false
                 }
             },
@@ -116,11 +172,11 @@ Page
                 name: "inPortrait"
                 when: appWindow.inPortrait
                 PropertyChanges {
-                    target: channelHorizontalLayout
+                    target: channelLandscapeLayout
                     visible: false
                 }
                 PropertyChanges {
-                    target: channelVerticalLayout
+                    target: channelPortraitLayout
                     visible: true
                 }
             }
