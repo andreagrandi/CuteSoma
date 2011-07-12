@@ -142,14 +142,134 @@ Page
         anchors.verticalCenterOffset: 5
         anchors.left: parent.left
 
-        Image
+        Item
         {
-            id: radioImageP
-            source: channelImage
-            width: 360
-            height: 360
-            anchors.left: parent.left
-            anchors.leftMargin: 10
+            id: songItemP
+            anchors.top: parent.bottom
+            anchors.topMargin: 10
+
+            Image
+            {
+                id: radioImageP
+                source: channelImage
+                width: 400
+                height: 400
+                anchors.top: parent.top
+                anchors.topMargin: 10
+                anchors.left: parent.left
+                anchors.leftMargin: 40
+            }
+
+            Item
+            {
+                anchors.top: radioImageP.bottom
+                anchors.topMargin: 10
+                anchors.left: parent.left
+                anchors.leftMargin: 15
+
+                Label
+                {
+                    id: nameLabelP
+                    text: channelName;
+                    font.pixelSize: 34;
+                    font.weight: Font.Bold;
+                }
+
+                Label
+                {
+                    id: djLabelP
+                    text: "Dj: " + channelDj;
+                    font.pixelSize: 25;
+                    font.weight: Font.Light;
+                    anchors.top: nameLabelP.bottom
+                    anchors.topMargin: 10
+                }
+
+                Label
+                {
+                    id: descriptionLabelP
+                    text: channelDescription;
+                    font.pixelSize: 25;
+                    font.weight: Font.Light;
+                    width: channelPlayer.width
+                    wrapMode: "WordWrap";
+                    anchors.top: djLabelP.bottom
+                    anchors.topMargin: 10
+                }
+
+                Label
+                {
+                    id: listenersLabelP
+                    text: "Listeners: " + channelListeners;
+                    font.pixelSize: 25;
+                    font.weight: Font.Light;
+                    anchors.top: descriptionLabelP.bottom
+                    anchors.topMargin: 10
+                }
+
+                Label
+                {
+                    id: songLabelP
+                    text: song;
+                    font.pixelSize: 25;
+                    font.weight: Font.Bold;
+                    anchors.top: listenersLabelP.bottom
+                    anchors.topMargin: 10
+                    width: channelPlayer.width - 30
+                    wrapMode: "WordWrap"
+                }
+            }
+        }
+
+        Item
+        {
+            id: controlRowP
+            anchors.top: parent.top
+            anchors.topMargin: 690
+
+            Button
+            {
+                id: playStopButtonP
+
+                Image
+                {
+                    id: imgPlayP
+                    anchors.centerIn: parent
+                    visible: false
+                    source: "image://theme/icon-m-toolbar-mediacontrol-play" + (theme.inverted ? "-inverse" : "")
+                }
+
+                Image
+                {
+                    id: imgPauseP
+                    anchors.centerIn: parent
+                    source: "image://theme/icon-m-toolbar-mediacontrol-pause" + (theme.inverted ? "-inverse" : "")
+                }
+
+                onClicked:
+                {
+                    if (imgPlayP.visible)
+                    {
+                        imgPlayP.visible = false;
+                        imgPauseP.visible = true;
+                    }
+                    else
+                    {
+                        imgPlayP.visible = true;
+                        imgPauseP.visible = false;
+                    }
+                }
+            }
+
+            Label
+            {
+                id: counterLabelP
+                text: "00:00"
+                anchors.left: playStopButtonP.right
+                anchors.leftMargin: 50
+                anchors.top: parent.top
+                anchors.topMargin: 15
+            }
         }
 
     }
