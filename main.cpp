@@ -18,13 +18,7 @@ int main(int argc, char *argv[])
     QObject::connect(root, SIGNAL(loadChannel(QString)), &sc, SLOT(loadChannel(QString)));
     QObject::connect((QObject*)view.engine(), SIGNAL(quit()), &app, SLOT(quit()));
 
-//#if defined MEEGO_EDITION
     view.showFullScreen();
-//    qDebug("MEEGO");
-//#else
-//    view.showNormal();
-//    qDebug("DESKTOP");
-//#endif
 
     return app.exec();
 }
