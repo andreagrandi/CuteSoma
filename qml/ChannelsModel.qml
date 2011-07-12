@@ -12,4 +12,5 @@ XmlListModel
          XmlRole { name: "song"; query: "lastPlaying[1]/string()" }
          XmlRole { name: "channelDj"; query: "dj/string()" }
          XmlRole { name: "channelListeners"; query: "listeners/string()" }
+         XmlRole { name: "songUrlFast"; query: "fastpls[1]/string()" }
 }
