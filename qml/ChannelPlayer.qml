@@ -22,8 +22,8 @@ Page
             {
                 id: radioImageL
                 source: channelImage
-                width: 300
-                height: 300
+                width: 310
+                height: 310
                 anchors.left: parent.left
                 anchors.leftMargin: 10
             }
@@ -57,7 +57,7 @@ Page
                     text: channelDescription;
                     font.pixelSize: 30;
                     font.weight: Font.Light;
-                    width: channelPlayer.width - radioImageL.width;
+                    width: channelPlayer.width - radioImageL.width - 20;
                     wrapMode: "WordWrap";
                     anchors.top: djLabelL.bottom
                     anchors.topMargin: 10
@@ -90,6 +90,8 @@ Page
             id: controlRowL
             anchors.top: parent.top
             anchors.topMargin: radioImageL.height + 20
+            anchors.left: parent.left
+            anchors.leftMargin: 10
 
             Button
             {
@@ -114,11 +116,15 @@ Page
                 {
                     if (imgPlayL.visible)
                     {
+                        imgPlayP.visible = false;
+                        imgPauseP.visible = true;
                         imgPlayL.visible = false;
                         imgPauseL.visible = true;
                     }
                     else
                     {
+                        imgPlayP.visible = true;
+                        imgPauseP.visible = false;
                         imgPlayL.visible = true;
                         imgPauseL.visible = false;
                     }
@@ -191,7 +197,7 @@ Page
                     text: channelDescription;
                     font.pixelSize: 25;
                     font.weight: Font.Light;
-                    width: channelPlayer.width
+                    width: channelPlayer.width - 20
                     wrapMode: "WordWrap";
                     anchors.top: djLabelP.bottom
                     anchors.topMargin: 10
@@ -226,6 +232,8 @@ Page
             id: controlRowP
             anchors.top: parent.top
             anchors.topMargin: 690
+            anchors.left: parent.left
+            anchors.leftMargin: 15
 
             Button
             {
@@ -252,11 +260,15 @@ Page
                     {
                         imgPlayP.visible = false;
                         imgPauseP.visible = true;
+                        imgPlayL.visible = false;
+                        imgPauseL.visible = true;
                     }
                     else
                     {
                         imgPlayP.visible = true;
                         imgPauseP.visible = false;
+                        imgPlayL.visible = true;
+                        imgPauseL.visible = false;
                     }
                 }
             }
