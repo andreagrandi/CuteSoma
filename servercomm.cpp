@@ -32,6 +32,7 @@ void ServerComm::pause()
 void ServerComm::loadChannel(QString channelUrl)
 {
     qDebug() << "Playing: " + channelUrl;
+    channelLoading();
     playlistNetworkReader->get(QNetworkRequest(channelUrl));
 }
 
@@ -48,4 +49,5 @@ void ServerComm::finishLoadingChannel(QNetworkReply *reply)
     media->setCurrentSource(QUrl(streamUrl));
 
     media->play();
+    channelLoaded();
 }

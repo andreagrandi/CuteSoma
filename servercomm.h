@@ -18,7 +18,8 @@ private:
     Phonon::MediaObject *media;
     QNetworkAccessManager *playlistNetworkReader;
 signals:
-
+    void channelLoading();
+    void channelLoaded();
 public slots:
     void play();
     void pause();

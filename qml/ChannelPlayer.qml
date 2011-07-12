@@ -6,6 +6,21 @@ Page
     id: channelPlayer
     tools: backMenuTool
 
+    Connections
+    {
+        target: serverComm
+
+        onChannelLoading:
+        {
+            indicator.visible = true;
+        }
+
+        onChannelLoaded:
+        {
+            indicator.visible = false;
+        }
+    }
+
     Item
     {
         id: channelLandscapeLayout
@@ -326,5 +341,14 @@ Page
             id: backMenuTool
             visible: true
             ToolIcon { iconId: "toolbar-back"; onClicked: { pageStack.pop(); } }
+
+            BusyIndicator
+            {
+                id: indicator
+                platformStyle: BusyIndicatorStyle { size: "small" }
+                running: true
+                visible: true
+                anchors.centerIn: parent
+             }
     }
 }
