@@ -120,6 +120,8 @@ Page
                         imgPauseP.visible = true;
                         imgPlayL.visible = false;
                         imgPauseL.visible = true;
+
+                        appWindow.play();
                     }
                     else
                     {
@@ -127,6 +129,8 @@ Page
                         imgPauseP.visible = false;
                         imgPlayL.visible = true;
                         imgPauseL.visible = false;
+
+                        appWindow.pause();
                     }
                 }
             }
@@ -262,6 +266,8 @@ Page
                         imgPauseP.visible = true;
                         imgPlayL.visible = false;
                         imgPauseL.visible = true;
+
+                        appWindow.play();
                     }
                     else
                     {
@@ -269,6 +275,8 @@ Page
                         imgPauseP.visible = false;
                         imgPlayL.visible = true;
                         imgPauseL.visible = false;
+
+                        appWindow.pause();
                     }
                 }
             }

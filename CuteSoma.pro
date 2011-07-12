@@ -4,6 +4,7 @@
 QML_IMPORT_PATH =
 
 QT+= declarative
+QT += phonon
 symbian:TARGET.UID3 = 0xE6ACF247
 
 # Smart Installer package's UID

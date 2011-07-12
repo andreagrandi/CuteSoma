@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <phonon/MediaObject>
+#include <QString>
 
 class ServerComm : public QObject
 {
@@ -18,6 +19,7 @@ signals:
 public slots:
     void play();
     void pause();
+    void loadChannel(QString channel);
 };
 
 #endif // SERVERCOMM_H

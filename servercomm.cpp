@@ -1,6 +1,7 @@
 #include "servercomm.h"
 #include <QDebug>
 #include <phonon/AudioOutput>
+#include <QUrl>
 
 ServerComm::ServerComm(QObject *parent) :
     QObject(parent)
@@ -20,4 +21,10 @@ void ServerComm::pause()
 {
     qDebug() << "Pausing";
     media->pause();
+}
+
+void ServerComm::loadChannel(QString channel)
+{
+    qDebug() << "Playing: " + channel;
+    media->setCurrentSource(QUrl(channel));
 }
