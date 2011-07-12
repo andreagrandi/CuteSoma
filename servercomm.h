@@ -5,6 +5,9 @@
 #include <phonon/MediaObject>
 #include <QString>
 
+class QNetworkAccessManager;
+class QNetworkReply;
+
 class ServerComm : public QObject
 {
     Q_OBJECT
@@ -13,13 +16,16 @@ public:
 
 private:
     Phonon::MediaObject *media;
-
+    QNetworkAccessManager *playlistNetworkReader;
 signals:
 
 public slots:
     void play();
     void pause();
-    void loadChannel(QString channel);
+    void loadChannel(QString channelUrl);
+
+protected slots:
+    void finishLoadingChannel(QNetworkReply *reply);
 };
 
 #endif // SERVERCOMM_H

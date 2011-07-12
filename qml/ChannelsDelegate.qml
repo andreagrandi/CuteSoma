@@ -104,8 +104,7 @@ Component
             onClicked: {
                 console.debug(channelName + " clicked");
                 console.debug(songUrlFast);
-                appWindow.loadChannel("http://streamer-dtc-aa03.somafm.com:80/stream/1018");
-                appWindow.play();
+                appWindow.loadChannel(songUrlFast);
                 pageStack.push(channelPlayer)}
         }
     }
