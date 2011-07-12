@@ -31,6 +31,8 @@ Component
             id: thumb
             source: channelImage
             anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 5
             width:90
             height: 90
         }
@@ -48,27 +50,33 @@ Component
             anchors.top: parent.top
             anchors.right: parent.right
             anchors.topMargin: 5
-            anchors.leftMargin: 85
+            anchors.left: parent.left
+            anchors.leftMargin: 100
+            spacing: 2
 
             Label
             {
                 text: channelName;
-                font.pixelSize: 24;
+                font.pixelSize: 22;
                 font.weight: Font.Bold;
             }
 
             Label
             {
                 text: channelDescription;
-                font.pixelSize: 20;
+                font.pixelSize: 16;
                 font.weight: Font.Light;
+                width: parent.width - thumb.width + 30
+                wrapMode: "WordWrap"
             }
 
             Label
             {
                 text: song;
-                font.pixelSize: 18;
+                font.pixelSize: 16;
                 font.weight: Font.Bold;
+                width: parent.width - thumb.width + 30
+                wrapMode: "WordWrap"
             }
 
             Image
