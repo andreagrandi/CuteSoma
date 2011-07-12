@@ -4,7 +4,8 @@
 QML_IMPORT_PATH =
 
 QT+= declarative
-QT += phonon
+QT+= phonon
+QT+= network
 symbian:TARGET.UID3 = 0xE6ACF247
 
 # Smart Installer package's UID
@@ -24,7 +25,8 @@ symbian:TARGET.CAPABILITY += NetworkServices
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    servercomm.cpp
+    servercomm.cpp \
+    playlistreader.cpp
 
 
 OTHER_FILES += \
@@ -57,4 +59,5 @@ QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
 
 HEADERS += \
-    servercomm.h
+    servercomm.h \
+    playlistreader.h
