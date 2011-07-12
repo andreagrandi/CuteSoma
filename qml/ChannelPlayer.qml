@@ -19,6 +19,12 @@ Page
         {
             indicator.visible = false;
         }
+
+        onPositionUpdate:
+        {
+            counterLabelP.text = minutes + ":" + seconds;
+            counterLabelL.text = minutes + ":" + seconds;
+        }
     }
 
     Item

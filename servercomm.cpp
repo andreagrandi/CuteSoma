@@ -15,23 +15,23 @@ ServerComm::ServerComm(QObject *parent) :
 
     playlistNetworkReader = new QNetworkAccessManager(this);
     connect(playlistNetworkReader, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishLoadingChannel(QNetworkReply*)));
+
+    media->setTickInterval(500);
+    QObject::connect(media, SIGNAL(tick(qint64)), this, SLOT(updateProgress(qint64)));
 }
 
 void ServerComm::play()
 {
-    qDebug() << "Play";
     media->play();
 }
 
 void ServerComm::pause()
 {
-    qDebug() << "Pausing";
     media->pause();
 }
 
 void ServerComm::loadChannel(QString channelUrl)
 {
-    qDebug() << "Playing: " + channelUrl;
     channelLoading();
     playlistNetworkReader->get(QNetworkRequest(channelUrl));
 }
@@ -39,15 +39,26 @@ void ServerComm::loadChannel(QString channelUrl)
 void ServerComm::finishLoadingChannel(QNetworkReply *reply)
 {
     QByteArray playlistData = reply->readAll();
-    qDebug() << "playlist info: " << playlistData;
     PlaylistReader playlistReader(playlistData);
-    // now get the stream urls of the playlist
     PlaylistReader::StreamUrls streamUrls = playlistReader.getStreamUrls();
-    qDebug() << "stream urls: " << streamUrls;
 
     QString streamUrl = streamUrls[0];
     media->setCurrentSource(QUrl(streamUrl));
 
     media->play();
     channelLoaded();
+}
+
+void ServerComm::updateProgress(qint64 time)
+{
+    int minutes = 0;
+    int seconds = 0;
+
+    minutes = (time / 1000) / 60;
+    seconds = (time / 1000) % 60;
+
+    QString min_str = QString("%1").arg(minutes, 2, 10, QLatin1Char('0'));
+    QString sec_str = QString("%1").arg(seconds, 2, 10, QLatin1Char('0'));
+
+    positionUpdate(min_str, sec_str);
 }
