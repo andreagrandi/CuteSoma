@@ -1,7 +1,7 @@
 Source: cutesoma
 Section: user/other
 Priority: optional
-Maintainer: Andrea Grandi <andrea@unknown>
+Maintainer: Andrea Grandi <a.grandi@gmail.com>
 Build-Depends: debhelper (>= 5), libqt4-dev
 Standards-Version: 3.7.3
 Homepage: https://github.com/andreagrandi/CuteSoma
