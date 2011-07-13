@@ -2,9 +2,7 @@
 #define SERVERCOMM_H
 
 #include <QObject>
-#include <phonon/MediaObject>
 #include <QString>
-
 #include <QMediaPlayer>
 
 class QNetworkAccessManager;
@@ -18,7 +16,6 @@ public:
     explicit ServerComm(QObject *parent = 0);
 
 private:
-    //Phonon::MediaObject *media;
     QNetworkAccessManager *playlistNetworkReader;
     QMediaPlayer *player;
     QMediaPlaylist *mediaplaylist;
