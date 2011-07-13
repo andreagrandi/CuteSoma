@@ -5,6 +5,8 @@ Page {
     id: mainPage
     tools: commonTools
 
+    property string currentChannel: ""
+
     ChannelsDelegate { id: delegate }
     ChannelsModel { id: model }
 

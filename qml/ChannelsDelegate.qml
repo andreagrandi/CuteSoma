@@ -101,11 +101,20 @@ Component
         {
             id: mouseArea
             anchors.fill: parent
-            onClicked: {
+
+            onClicked:
+            {
                 console.debug(channelName + " clicked");
                 console.debug(songUrlFast);
-                appWindow.loadChannel(songUrlFast);
-                pageStack.push(channelPlayer)}
+
+                if(mainPage.currentChannel != channelName)
+                {
+                    appWindow.loadChannel(songUrlFast);
+                }
+
+                mainPage.currentChannel = channelName;
+                pageStack.push(channelPlayer)
+            }
         }
     }
 }
