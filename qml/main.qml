@@ -34,11 +34,16 @@ PageStackWindow
 
         MenuLayout
         {
-            MenuItem { text: "Preferences" }
-            MenuItem { text: "About"
-                onClicked: { pageStack.push(aboutPage); }}
-            MenuItem { text: "Quit"
-                        onClicked: Qt.quit()}
+            MenuItem
+            {
+                text: "About"
+                onClicked: { pageStack.push(aboutPage); }
+            }
+            MenuItem
+            {
+                text: "Quit"
+                onClicked: Qt.quit()
+            }
         }
     }
 }
