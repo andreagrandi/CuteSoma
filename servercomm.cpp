@@ -1,33 +1,33 @@
 #include "servercomm.h"
 #include "playlistreader.h"
 #include <QDebug>
-#include <phonon/AudioOutput>
 #include <QUrl>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QMediaPlaylist>
 
 ServerComm::ServerComm(QObject *parent) :
     QObject(parent)
 {
-    media = new Phonon::MediaObject(this);
-    Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
-    Phonon::createPath(media, audioOutput);
-
     playlistNetworkReader = new QNetworkAccessManager(this);
     connect(playlistNetworkReader, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishLoadingChannel(QNetworkReply*)));
 
-    media->setTickInterval(500);
-    QObject::connect(media, SIGNAL(tick(qint64)), this, SLOT(updateProgress(qint64)));
+    player = new QMediaPlayer(this);
+    mediaplaylist = new QMediaPlaylist;
+    player->setPlaylist(mediaplaylist);
+
+    connect(player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), this, SLOT(setMediaStatus(QMediaPlayer::MediaStatus)));
+    connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(updateProgress(qint64)));
 }
 
 void ServerComm::play()
 {
-    media->play();
+    player->play();
 }
 
 void ServerComm::pause()
 {
-    media->pause();
+    player->pause();
 }
 
 void ServerComm::loadChannel(QString channelUrl)
@@ -43,10 +43,10 @@ void ServerComm::finishLoadingChannel(QNetworkReply *reply)
     PlaylistReader::StreamUrls streamUrls = playlistReader.getStreamUrls();
 
     QString streamUrl = streamUrls[0];
-    media->setCurrentSource(QUrl(streamUrl));
+    mediaplaylist->clear();
+    mediaplaylist->addMedia(QUrl(streamUrl));
 
-    media->play();
-    channelLoaded();
+    player->play();
 }
 
 void ServerComm::updateProgress(qint64 time)
@@ -61,4 +61,24 @@ void ServerComm::updateProgress(qint64 time)
     QString sec_str = QString("%1").arg(seconds, 2, 10, QLatin1Char('0'));
 
     positionUpdate(min_str, sec_str);
+}
+
+void ServerComm::setMediaStatus(QMediaPlayer::MediaStatus state)
+{
+    switch (state) {
+    case QMediaPlayer::BufferingMedia:
+        channelLoading();
+        break;
+    case QMediaPlayer::BufferedMedia:
+        channelLoaded();
+        break;
+    case QMediaPlayer::LoadingMedia:
+        channelLoading();
+        break;
+    case QMediaPlayer::StalledMedia:
+        channelLoading();
+        break;
+    default:
+        break;
+    }
 }

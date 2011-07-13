@@ -5,8 +5,11 @@
 #include <phonon/MediaObject>
 #include <QString>
 
+#include <QMediaPlayer>
+
 class QNetworkAccessManager;
 class QNetworkReply;
+class QMediaPlaylist;
 
 class ServerComm : public QObject
 {
@@ -15,8 +18,10 @@ public:
     explicit ServerComm(QObject *parent = 0);
 
 private:
-    Phonon::MediaObject *media;
+    //Phonon::MediaObject *media;
     QNetworkAccessManager *playlistNetworkReader;
+    QMediaPlayer *player;
+    QMediaPlaylist *mediaplaylist;
 signals:
     void channelLoading();
     void channelLoaded();
@@ -29,6 +34,7 @@ private slots:
     void updateProgress(qint64 time);
 protected slots:
     void finishLoadingChannel(QNetworkReply *reply);
+    void setMediaStatus(QMediaPlayer::MediaStatus state);
 };
 
 #endif // SERVERCOMM_H
