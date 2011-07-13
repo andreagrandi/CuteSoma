@@ -12,7 +12,6 @@ PageStackWindow
     signal loadChannel(string channel)
 
     About { id: aboutPage }
-    ChannelPlayer { id: channelPlayer }
 
     ToolBarLayout
     {
