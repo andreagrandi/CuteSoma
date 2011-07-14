@@ -355,6 +355,6 @@ Page
                 running: true
                 visible: true
                 anchors.centerIn: parent
-             }
+            }
     }
 }

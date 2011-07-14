@@ -24,6 +24,15 @@ PageStackWindow
             anchors.right: parent===undefined ? undefined : parent.right
             onClicked: (myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()
         }
+
+        BusyIndicator
+        {
+            id: channelLoadingIndicator
+            platformStyle: BusyIndicatorStyle { size: "small" }
+            running: true
+            visible: false
+            anchors.centerIn: parent
+        }
     }
 
     Menu
