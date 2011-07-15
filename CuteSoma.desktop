@@ -4,7 +4,7 @@ Version=1.0
 Type=Application
 Terminal=false
 Name=CuteSoma
-Exec=invoker --single-instance --type=d /opt/CuteSoma/bin/CuteSoma
+Exec=/usr/bin/single-instance /opt/CuteSoma/bin/CuteSoma
 Icon=/usr/share/icons/hicolor/scalable/apps/CuteSoma.svg
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true
