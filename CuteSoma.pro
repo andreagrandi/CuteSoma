@@ -4,7 +4,6 @@
 QML_IMPORT_PATH =
 
 QT+= declarative
-QT+= phonon
 QT+= network
 symbian:TARGET.UID3 = 0xE6ACF247
 
