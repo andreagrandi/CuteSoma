@@ -25,6 +25,11 @@ Page
             counterLabelP.text = minutes + ":" + seconds;
             counterLabelL.text = minutes + ":" + seconds;
         }
+
+        onUpdateSong:
+        {
+            appWindow.updateChannelInfo(channelName);
+        }
     }
 
     Item

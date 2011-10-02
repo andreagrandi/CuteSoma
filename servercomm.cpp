@@ -5,6 +5,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QMediaPlaylist>
+#include <QTimer>
 
 ServerComm::ServerComm(QObject *parent) :
     QObject(parent)
@@ -12,12 +13,20 @@ ServerComm::ServerComm(QObject *parent) :
     playlistNetworkReader = new QNetworkAccessManager(this);
     connect(playlistNetworkReader, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishLoadingChannel(QNetworkReply*)));
 
+    channelInfoReader = new QNetworkAccessManager(this);
+    connect(channelInfoReader, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishReadingChannelInfo(QNetworkReply*)));
+
     player = new QMediaPlayer(this);
     mediaplaylist = new QMediaPlaylist;
     player->setPlaylist(mediaplaylist);
 
     connect(player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), this, SLOT(setMediaStatus(QMediaPlayer::MediaStatus)));
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(updateProgress(qint64)));
+
+    connect(player, SIGNAL(stateChanged(QMediaPlayer::State)), this, SLOT(playerState(QMediaPlayer::State)));
+
+    nowPlayingSongTimer = new QTimer(this);
+    connect(nowPlayingSongTimer, SIGNAL(timeout()), this, SLOT(checkSongUpdates()));
 }
 
 void ServerComm::play()
@@ -81,4 +90,36 @@ void ServerComm::setMediaStatus(QMediaPlayer::MediaStatus state)
     default:
         break;
     }
+}
+
+void ServerComm::checkSongUpdates()
+{
+    updateSong();
+}
+
+void ServerComm::playerState(QMediaPlayer::State state)
+{
+    switch (state)
+    {
+        case QMediaPlayer::StoppedState:
+            nowPlayingSongTimer->stop();
+            break;
+        case QMediaPlayer::PlayingState:
+            nowPlayingSongTimer->start(SONGS_POLL_TIME);
+            break;
+        case QMediaPlayer::PausedState:
+            nowPlayingSongTimer->stop();
+            break;
+    }
+}
+
+void ServerComm::updateChannelInfo(QString channelName)
+{
+    currentPlayedChannel = channelName;
+    //channelInfoReader->get(QNetworkRequest(CHANNEL_REFRESH_URL));
+}
+
+void ServerComm::finishReadingChannelInfo(QNetworkReply *reply)
+{
+
 }

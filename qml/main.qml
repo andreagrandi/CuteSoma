@@ -10,6 +10,7 @@ PageStackWindow
     signal play()
     signal pause()
     signal loadChannel(string channel)
+    signal updateChannelInfo(string channel)
 
     About { id: aboutPage }
 
