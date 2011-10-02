@@ -33,7 +33,6 @@ OTHER_FILES += \
     qml/main.qml \
     CuteSoma.desktop \
     CuteSoma.svg \
-    CuteSoma.png \
     qtc_packaging/debian_harmattan/rules \
     qtc_packaging/debian_harmattan/README \
     qtc_packaging/debian_harmattan/copyright \
@@ -60,3 +59,4 @@ QMAKE_LFLAGS += -pie -rdynamic
 HEADERS += \
     servercomm.h \
     playlistreader.h
+
