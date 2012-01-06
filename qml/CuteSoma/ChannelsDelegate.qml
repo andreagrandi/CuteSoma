@@ -111,7 +111,7 @@ Component
 
                 if (mainPage.currentChannel != channelName)
                 {
-                    appWindow.loadChannel(songUrlFast);
+                    serverComm.loadChannel(songUrlFast)
                 }
 
                 mainPage.currentChannel = channelName;

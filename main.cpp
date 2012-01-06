@@ -1,24 +1,30 @@
 #include <QtGui/QApplication>
 #include <QtDeclarative>
+#include "qmlapplicationviewer.h"
 #include "servercomm.h"
 
-int main(int argc, char *argv[])
+Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
-    QDeclarativeView view;
-    view.setSource(QUrl("qrc:/qml/main.qml"));
+    QScopedPointer<QApplication> app(createApplication(argc, argv));
 
-    QObject *root = (QObject*)(view.rootObject());
+    QmlApplicationViewer viewer;
+    viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+    viewer.setMainQmlFile(QLatin1String("qml/CuteSoma/main.qml"));
+
+
 
     ServerComm sc;
-    view.rootContext()->setContextProperty("serverComm", &sc);
+    viewer.rootContext()->setContextProperty("serverComm", &sc);
 
-    QObject::connect(root, SIGNAL(play()), &sc, SLOT(play()));
-    QObject::connect(root, SIGNAL(pause()), &sc, SLOT(pause()));
-    QObject::connect(root, SIGNAL(loadChannel(QString)), &sc, SLOT(loadChannel(QString)));
-    QObject::connect((QObject*)view.engine(), SIGNAL(quit()), &app, SLOT(quit()));
+    viewer.showExpanded();
 
-    view.showFullScreen();
+    //QObject *root = (QObject*)(viewer.rootObject());
 
-    return app.exec();
+
+//    QObject::connect(root, SIGNAL(play()), &sc, SLOT(play()));
+//    QObject::connect(root, SIGNAL(pause()), &sc, SLOT(pause()));
+//    QObject::connect(root, SIGNAL(loadChannel(QString)), &sc, SLOT(loadChannel(QString)));
+    //QObject::connect(viewer.engine(), SIGNAL(quit()), &app, SLOT(quit()));
+
+    return app->exec();
 }

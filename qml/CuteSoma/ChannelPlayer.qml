@@ -147,7 +147,7 @@ Page
                         imgPlayL.visible = false;
                         imgPauseL.visible = true;
 
-                        appWindow.play();
+                        serverComm.play();
                     }
                     else
                     {
@@ -156,7 +156,7 @@ Page
                         imgPlayL.visible = true;
                         imgPauseL.visible = false;
 
-                        appWindow.pause();
+                        serverComm.pause();
                     }
                 }
             }
@@ -293,7 +293,7 @@ Page
                         imgPlayL.visible = false;
                         imgPauseL.visible = true;
 
-                        appWindow.play();
+                        serverComm.play();
                     }
                     else
                     {
@@ -302,7 +302,7 @@ Page
                         imgPlayL.visible = true;
                         imgPauseL.visible = false;
 
-                        appWindow.pause();
+                        serverComm.pause();
                     }
                 }
             }

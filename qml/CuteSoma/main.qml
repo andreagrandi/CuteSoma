@@ -7,10 +7,10 @@ PageStackWindow
     initialPage: mainPage
     MainPage { id: mainPage }
 
-    signal play()
-    signal pause()
-    signal loadChannel(string channel)
-    signal updateChannelInfo(string channel)
+//    signal play()
+//    signal pause()
+//    signal loadChannel(string channel)
+//    signal updateChannelInfo(string channel)
 
     About { id: aboutPage }
 
