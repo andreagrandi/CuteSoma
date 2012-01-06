@@ -24,6 +24,8 @@ Component
         {
             id: thumb
             source: channelImage
+            sourceSize.height: 90
+            sourceSize.width: 90
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 5
