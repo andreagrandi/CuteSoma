@@ -31,7 +31,7 @@ Page
 
         onUpdateSong:
         {
-            appWindow.updateChannelInfo(channelName);
+            serverComm.updateChannelInfo(model.channelName);
         }
     }
 
