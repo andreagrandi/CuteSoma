@@ -5,9 +5,12 @@ PageStackWindow
 {
     id: appWindow
     initialPage: mainPage
+
     MainPage { id: mainPage }
 
     About { id: aboutPage }
+
+    ChannelPlayer { id: channelPlayer }
 
     ToolBarLayout
     {

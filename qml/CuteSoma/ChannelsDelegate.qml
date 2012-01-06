@@ -98,7 +98,7 @@ Component
             anchors.right: parent.right
         }
 
-        ChannelPlayer {id: channelPlayer }
+        //ChannelPlayer {id: channelPlayer }
 
         MouseArea
         {
@@ -116,6 +116,7 @@ Component
                 }
 
                 mainPage.currentChannel = channelName;
+                channelPlayer.model = model
                 pageStack.push(channelPlayer)
             }
         }
