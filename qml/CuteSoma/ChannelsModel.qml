@@ -7,6 +7,7 @@ XmlListModel
     query: "/channels/channel"
 
     XmlRole { name: "channelImage"; query: "image/string()" }
+    XmlRole { name: "channelImageBig"; query: "xlimage/string()" }
     XmlRole { name: "channelName"; query: "title/string()" }
     XmlRole { name: "channelDescription"; query: "description/string()" }
     XmlRole { name: "song"; query: "lastPlaying[1]/string()" }

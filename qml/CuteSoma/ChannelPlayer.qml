@@ -50,10 +50,13 @@ Page
             Image
             {
                 id: radioImageL
-                source: model ? model.channelImage : ""
+                source: model ? model.channelImageBig : ""
                 width: 310
                 height: 310
+                sourceSize.width: 310
+                sourceSize.height: 310
                 asynchronous: true
+                smooth: true
                 anchors.left: parent.left
                 anchors.leftMargin: 10
             }
@@ -191,10 +194,13 @@ Page
             Image
             {
                 id: radioImageP
-                source: model ? model.channelImage : ""
+                source: model ? model.channelImageBig : ""
                 width: 400
                 height: 400
+                sourceSize.height: 400
+                sourceSize.width: 400
                 asynchronous: true
+                smooth: true
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 anchors.left: parent.left
