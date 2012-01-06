@@ -50,6 +50,7 @@ Page
                 source: channelImage
                 width: 310
                 height: 310
+                asynchronous: true
                 anchors.left: parent.left
                 anchors.leftMargin: 10
             }
@@ -190,6 +191,7 @@ Page
                 source: channelImage
                 width: 400
                 height: 400
+                asynchronous: true
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 anchors.left: parent.left

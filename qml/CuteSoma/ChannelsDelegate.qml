@@ -26,6 +26,7 @@ Component
             source: channelImage
             sourceSize.height: 90
             sourceSize.width: 90
+            asynchronous: true
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 5
