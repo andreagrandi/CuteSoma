@@ -62,7 +62,7 @@ contains(MEEGO_EDITION,harmattan) {
 }
 
 contains(MEEGO_EDITION,harmattan) {
-    icon.files = $${TARGET}.svg
+    icon.files = $${TARGET}.png
     icon.path = /usr/share/icons/hicolor/80x80/apps
     INSTALLS += icon
 }
