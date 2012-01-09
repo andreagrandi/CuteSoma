@@ -20,7 +20,7 @@ Page
 
         Label
         {
-            text: "CuteSoma 0.1"
+            text: "CuteSoma 0.2"
             font.pixelSize: 38
             font.weight: Font.Bold;
             anchors.horizontalCenter: parent.horizontalCenter
