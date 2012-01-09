@@ -7,11 +7,11 @@ Page {
 
     property string currentChannel: ""
 
-    Image
+    Rectangle
     {
         id: header
-        height: 72
-        source: "image://theme/color13-meegotouch-view-header-fixed"
+        height: 64
+        color: "#363636"
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.right: parent.right
