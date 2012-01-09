@@ -1,9 +1,12 @@
 import QtQuick 1.0
-import com.meego 1.0
+import com.nokia.meego 1.0
 
 Page
 {
     id: channelPlayer
+
+    property QtObject model: null
+
     tools: backMenuTool
 
     Connections
@@ -28,7 +31,7 @@ Page
 
         onUpdateSong:
         {
-            appWindow.updateChannelInfo(channelName);
+            serverComm.updateChannelInfo(model.channelName);
         }
     }
 
@@ -47,9 +50,13 @@ Page
             Image
             {
                 id: radioImageL
-                source: channelImage
+                source: model ? model.channelImageBig : ""
                 width: 310
                 height: 310
+                sourceSize.width: 310
+                sourceSize.height: 310
+                asynchronous: true
+                smooth: true
                 anchors.left: parent.left
                 anchors.leftMargin: 10
             }
@@ -62,7 +69,7 @@ Page
                 Label
                 {
                     id: nameLabelL
-                    text: channelName;
+                    text: model ? model.channelName : ""
                     font.pixelSize: 34;
                     font.weight: Font.Bold;
                 }
@@ -70,7 +77,7 @@ Page
                 Label
                 {
                     id: djLabelL
-                    text: "Dj: " + channelDj;
+                    text: "Dj: " + (model ? model.channelDj : "")
                     font.pixelSize: 25;
                     font.weight: Font.Light;
                     anchors.top: nameLabelL.bottom
@@ -80,7 +87,7 @@ Page
                 Label
                 {
                     id: descriptionLabelL
-                    text: channelDescription;
+                    text: model ? model.channelDescription : ""
                     font.pixelSize: 30;
                     font.weight: Font.Light;
                     width: channelPlayer.width - radioImageL.width - 20;
@@ -92,7 +99,7 @@ Page
                 Label
                 {
                     id: listenersLabelL
-                    text: "Listeners: " + channelListeners;
+                    text: "Listeners: " + (model ? model.channelListeners : "")
                     font.pixelSize: 25;
                     font.weight: Font.Light;
                     anchors.top: descriptionLabelL.bottom
@@ -102,7 +109,7 @@ Page
                 Label
                 {
                     id: songLabelL
-                    text: song;
+                    text: model ? model.song : ""
                     font.pixelSize: 25;
                     font.weight: Font.Bold;
                     anchors.top: listenersLabelL.bottom
@@ -147,7 +154,7 @@ Page
                         imgPlayL.visible = false;
                         imgPauseL.visible = true;
 
-                        appWindow.play();
+                        serverComm.play();
                     }
                     else
                     {
@@ -156,7 +163,7 @@ Page
                         imgPlayL.visible = true;
                         imgPauseL.visible = false;
 
-                        appWindow.pause();
+                        serverComm.pause();
                     }
                 }
             }
@@ -187,9 +194,13 @@ Page
             Image
             {
                 id: radioImageP
-                source: channelImage
+                source: model ? model.channelImageBig : ""
                 width: 400
                 height: 400
+                sourceSize.height: 400
+                sourceSize.width: 400
+                asynchronous: true
+                smooth: true
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 anchors.left: parent.left
@@ -206,7 +217,7 @@ Page
                 Label
                 {
                     id: nameLabelP
-                    text: channelName;
+                    text: model ? model.channelName : ""
                     font.pixelSize: 34;
                     font.weight: Font.Bold;
                 }
@@ -214,7 +225,7 @@ Page
                 Label
                 {
                     id: djLabelP
-                    text: "Dj: " + channelDj;
+                    text: "Dj: " + (model ? model.channelDj : "")
                     font.pixelSize: 25;
                     font.weight: Font.Light;
                     anchors.top: nameLabelP.bottom
@@ -224,7 +235,7 @@ Page
                 Label
                 {
                     id: descriptionLabelP
-                    text: channelDescription;
+                    text: model ? model.channelDescription : ""
                     font.pixelSize: 25;
                     font.weight: Font.Light;
                     width: channelPlayer.width - 20
@@ -236,7 +247,7 @@ Page
                 Label
                 {
                     id: listenersLabelP
-                    text: "Listeners: " + channelListeners;
+                    text: "Listeners: " + (model ? model.channelListeners : "")
                     font.pixelSize: 25;
                     font.weight: Font.Light;
                     anchors.top: descriptionLabelP.bottom
@@ -246,7 +257,7 @@ Page
                 Label
                 {
                     id: songLabelP
-                    text: song;
+                    text: model ? model.song : ""
                     font.pixelSize: 25;
                     font.weight: Font.Bold;
                     anchors.top: listenersLabelP.bottom
@@ -293,7 +304,7 @@ Page
                         imgPlayL.visible = false;
                         imgPauseL.visible = true;
 
-                        appWindow.play();
+                        serverComm.play();
                     }
                     else
                     {
@@ -302,7 +313,7 @@ Page
                         imgPlayL.visible = true;
                         imgPauseL.visible = false;
 
-                        appWindow.pause();
+                        serverComm.pause();
                     }
                 }
             }

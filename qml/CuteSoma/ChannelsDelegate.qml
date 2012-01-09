@@ -1,5 +1,5 @@
 import QtQuick 1.0
-import com.meego 1.0
+import com.nokia.meego 1.0
 
 Component
 {
@@ -20,16 +20,13 @@ Component
             source: "image://theme/meegotouch-list-background-pressed-center"
         }
 
-        Item
-        {
-            width: 10
-            height: 100
-        }
-
         Image
         {
             id: thumb
             source: channelImage
+            sourceSize.height: 90
+            sourceSize.width: 90
+            asynchronous: true
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 5
@@ -37,21 +34,23 @@ Component
             height: 90
         }
 
-        Item
+        Image
         {
-            width: 15
-            height: 100
+            id: arrow
+            source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
+            anchors.right: parent.right;
+            anchors.rightMargin: 5
+            anchors.verticalCenter: parent.verticalCenter
         }
 
         Column
         {
-            height: 98
-            width: parent.width - 95
             anchors.top: parent.top
-            anchors.right: parent.right
             anchors.topMargin: 5
-            anchors.left: parent.left
-            anchors.leftMargin: 100
+            anchors.right: arrow.left
+            anchors.rightMargin: 10
+            anchors.left: thumb.right
+            anchors.leftMargin: 10
             spacing: 2
 
             Label
@@ -59,6 +58,10 @@ Component
                 text: channelName;
                 font.pixelSize: 22;
                 font.weight: Font.Bold;
+                maximumLineCount: 1
+                elide: Text.ElideRight
+                anchors.left: parent.left
+                anchors.right: parent.right
             }
 
             Label
@@ -66,8 +69,11 @@ Component
                 text: channelDescription;
                 font.pixelSize: 16;
                 font.weight: Font.Light;
-                width: parent.width - thumb.width + 30
-                wrapMode: "WordWrap"
+                maximumLineCount: 2
+                elide: Text.ElideRight
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                anchors.left: parent.left
+                anchors.right: parent.right
             }
 
             Label
@@ -75,15 +81,11 @@ Component
                 text: song;
                 font.pixelSize: 16;
                 font.weight: Font.Bold;
-                width: parent.width - thumb.width + 30
-                wrapMode: "WordWrap"
-            }
-
-            Image
-            {
-                source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
-                anchors.right: parent.right;
-                anchors.verticalCenter: parent.verticalCenter //FIXME: how to center eliminating the warning at runtime?
+                maximumLineCount: 1
+                elide: Text.ElideRight
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                anchors.left: parent.left
+                anchors.right: parent.right
             }
         }
 
@@ -92,10 +94,11 @@ Component
             anchors.bottom: parent.bottom
             height: 1
             color: "#e4e5e7"
-            width: channels.width
+            anchors.left: parent.left
+            anchors.right: parent.right
         }
 
-        ChannelPlayer {id: channelPlayer }
+        //ChannelPlayer {id: channelPlayer }
 
         MouseArea
         {
@@ -107,12 +110,13 @@ Component
                 console.debug(channelName + " clicked");
                 console.debug(songUrlFast);
 
-                if(mainPage.currentChannel != channelName)
+                if (mainPage.currentChannel != channelName)
                 {
-                    appWindow.loadChannel(songUrlFast);
+                    serverComm.loadChannel(songUrlFast)
                 }
 
                 mainPage.currentChannel = channelName;
+                channelPlayer.model = model
                 pageStack.push(channelPlayer)
             }
         }

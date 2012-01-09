@@ -1,18 +1,16 @@
 import QtQuick 1.0
-import com.meego 1.0
+import com.nokia.meego 1.0
 
 PageStackWindow
 {
     id: appWindow
     initialPage: mainPage
+
     MainPage { id: mainPage }
 
-    signal play()
-    signal pause()
-    signal loadChannel(string channel)
-    signal updateChannelInfo(string channel)
-
     About { id: aboutPage }
+
+    ChannelPlayer { id: channelPlayer }
 
     ToolBarLayout
     {
