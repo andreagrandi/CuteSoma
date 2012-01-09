@@ -4,13 +4,12 @@ import com.nokia.meego 1.0
 Page
 {
     id: aboutPage
-    //anchors.margins: rootWin.pageMargin
     tools: backMenuTool
 
     Column
     {
         spacing: 10
-        anchors.verticalCenterOffset: 5
+        anchors.verticalCenterOffset: 3
         anchors.centerIn: parent
 
         Image
@@ -43,6 +42,12 @@ Page
         Label
         {
             text: "Andrea Grandi <a.grandi@gmail.com>"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Label
+        {
+            text: "Cornelius Hald <hald@icandy.de>"
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
