@@ -4,8 +4,10 @@
 #include <QUrl>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QMediaPlaylist>
 #include <QTimer>
+#include <QDomDocument>
 
 ServerComm::ServerComm(QObject *parent) :
     QObject(parent)
@@ -113,13 +115,31 @@ void ServerComm::playerState(QMediaPlayer::State state)
     }
 }
 
-void ServerComm::updateChannelInfo(QString channelName)
+void ServerComm::updateChannelInfo(QString channelId)
 {
-    currentPlayedChannel = channelName;
-    //channelInfoReader->get(QNetworkRequest(CHANNEL_REFRESH_URL));
+    QNetworkRequest request = QNetworkRequest(QUrl(CHANNEL_REFRESH_URL));
+    request.setAttribute(QNetworkRequest::User, QVariant(channelId));
+    channelInfoReader->get(request);
 }
 
 void ServerComm::finishReadingChannelInfo(QNetworkReply *reply)
 {
+    QString channelId = reply->request().attribute(QNetworkRequest::User).toString();
+    QString lastPlaying = "";
 
+    QByteArray data = reply->readAll();
+    QString xmldata = QString::fromUtf8(data);
+
+    QDomDocument doc("Channels");
+    doc.setContent(xmldata.toUtf8());
+
+    QDomNodeList channels = doc.documentElement().elementsByTagName("channels").at(1).toElement().elementsByTagName("channel");
+
+    for(int i = 0; i < channels.count(); i++)
+    {
+        if(channels.at(i).toElement().attribute("id") == channelId)
+            lastPlaying = channels.at(i).toElement().elementsByTagName("lastPlaying").at(0).toElement().text();
+    }
+
+    channelSongUpdate(lastPlaying);
 }

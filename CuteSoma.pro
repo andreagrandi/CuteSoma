@@ -73,3 +73,5 @@ contains(MEEGO_EDITION,harmattan) {
 #    splash.path = /opt/CuteSoma
 #    INSTALLS += splash
 #}
+
+QT += xml

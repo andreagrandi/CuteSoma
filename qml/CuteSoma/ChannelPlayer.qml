@@ -31,7 +31,13 @@ Page
 
         onUpdateSong:
         {
-            serverComm.updateChannelInfo(model.channelName);
+            serverComm.updateChannelInfo(model.channelId);
+        }
+
+        onChannelSongUpdate:
+        {
+            songLabelP.text = song;
+            songLabelL.text = song;
         }
     }
 

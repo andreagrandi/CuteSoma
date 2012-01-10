@@ -6,6 +6,7 @@ XmlListModel
     source: "http://somafm.com/channels.xml"
     query: "/channels/channel"
 
+    XmlRole { name: "channelId"; query: "@id/string()" }
     XmlRole { name: "channelImage"; query: "image/string()" }
     XmlRole { name: "channelImageBig"; query: "xlimage/string()" }
     XmlRole { name: "channelName"; query: "title/string()" }

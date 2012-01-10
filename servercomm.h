@@ -25,12 +25,12 @@ private:
     QMediaPlayer *player;
     QMediaPlaylist *mediaplaylist;
     QTimer *nowPlayingSongTimer;
-    QString currentPlayedChannel;
 signals:
     void channelLoading();
     void channelLoaded();
     void positionUpdate(QString minutes, QString seconds);
     void updateSong();
+    void channelSongUpdate(QString song);
 public slots:
     void play();
     void pause();
