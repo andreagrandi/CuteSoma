@@ -1,5 +1,11 @@
 cutesoma (0.2.0) unstable; urgency=low
-  * <Add change description here>
+  * New application icon.
+  * Song title is correctly updated when song changes.
+  * Add Cornelius Hald to the About window.
+  * Added hi-res images to ChannelPlayer (Cornelius Hald)
+  * Added view header. Simplified list delegate. Fixed warning. (Cornelius Hald)
+  * Loading images asynchronous (Cornelius Hald)
+  * Other fixes.
 
  -- Andrea Grandi <a.grandi@gmail.com>  Mon, 09 Jan 2012 21:21:40 +0100
 
