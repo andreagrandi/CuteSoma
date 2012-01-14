@@ -31,6 +31,8 @@ signals:
     void positionUpdate(QString minutes, QString seconds);
     void updateSong();
     void channelSongUpdate(QString song);
+    void songPlaying();
+    void songPaused();
 public slots:
     void play();
     void pause();

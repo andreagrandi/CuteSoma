@@ -41,6 +41,22 @@ Page
             songLabelP.text = song;
             songLabelL.text = song;
         }
+
+        onSongPlaying:
+        {
+            imgPlayL.visible = false;
+            imgPlayP.visible = false;
+            imgPauseL.visible = true;
+            imgPauseP.visible = true;
+        }
+
+        onSongPaused:
+        {
+            imgPlayL.visible = true;
+            imgPlayP.visible = true;
+            imgPauseL.visible = false;
+            imgPauseP.visible = false;
+        }
     }
 
     Item
@@ -155,6 +171,8 @@ Page
 
                 onClicked:
                 {
+                    console.debug("Landscape PlayPause button clicked");
+
                     if (imgPlayL.visible)
                     {
                         imgPlayP.visible = false;
@@ -305,6 +323,8 @@ Page
 
                 onClicked:
                 {
+                    console.debug("Portrait PlayPause button clicked");
+
                     if (imgPlayP.visible)
                     {
                         imgPlayP.visible = false;

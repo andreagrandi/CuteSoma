@@ -34,11 +34,13 @@ ServerComm::ServerComm(QObject *parent) :
 void ServerComm::play()
 {
     player->play();
+    songPlaying();
 }
 
 void ServerComm::pause()
 {
     player->pause();
+    songPaused();
 }
 
 void ServerComm::loadChannel(QString channelUrl)
@@ -58,6 +60,7 @@ void ServerComm::finishLoadingChannel(QNetworkReply *reply)
     mediaplaylist->addMedia(QUrl(streamUrl));
 
     player->play();
+    songPlaying();
 }
 
 void ServerComm::updateProgress(qint64 time)
