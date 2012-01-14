@@ -56,7 +56,7 @@ Page
             Image
             {
                 id: radioImageL
-                source: model ? model.channelImageBig : ""
+                source: model ? (model.channelImageBig === "" ? model.channelImage : model.channelImageBig) : ""
                 width: 310
                 height: 310
                 sourceSize.width: 310
@@ -200,7 +200,7 @@ Page
             Image
             {
                 id: radioImageP
-                source: model ? model.channelImageBig : ""
+                source: model ? (model.channelImageBig === "" ? model.channelImage : model.channelImageBig) : ""
                 width: 400
                 height: 400
                 sourceSize.height: 400
