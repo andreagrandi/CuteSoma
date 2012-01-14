@@ -1,2 +1,18 @@
-- update song title/author every * seconds to reflect the new songs played (Andrea Grandi)
+Issues:
+- After switching back from the player it is unclear how to come back to the player (with the same channel).
+- In list view no indication which song (or channgel) is currently playing. (Similar to the above)
+- Sometimes the play/pause button shows the wrong icon. (E.g. 'play' if it should be 'pause')
+
+Ideas:
 - display Artist/Song in big letters if in task switcher (Cornelius Hald)
+- Add a 'now playing' indicator to the list view.
+- Maybe put play/pause button and time into toolbar
+- If there is enough information in the stream, add a progress bar
+- Maybe use a tab control instead of a page stack (list and player)
+- Offer low-bitrate streams if on 3G network
+- Symbian version
+
+Fixed:
+- update song title/author every * seconds to reflect the new songs played (Andrea Grandi)
+- Sometimes the hi-res images are not loaded. Maybe then switch to low-res. Tag's Trip, Cliqhop idm, Black Rock FM, Mission Control
+
