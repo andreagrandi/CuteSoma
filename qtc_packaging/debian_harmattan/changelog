@@ -1,3 +1,9 @@
+cutesoma (0.2.1) unstable; urgency=low
+  * Show low-res image if no hi-res image is available.
+  * Small fixes.
+
+ -- Andrea Grandi <a.grandi@gmail.com>  Sat, 14 Jan 2012 13:55:28 +0100
+
 cutesoma (0.2.0) unstable; urgency=low
   * New application icon.
   * Song title is correctly updated when song changes.
