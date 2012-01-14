@@ -31,7 +31,9 @@ Page
 
         onUpdateSong:
         {
-            serverComm.updateChannelInfo(model.channelId);
+            if (model) {
+                serverComm.updateChannelInfo(model.channelId);
+            }
         }
 
         onChannelSongUpdate:
