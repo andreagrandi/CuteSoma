@@ -171,8 +171,6 @@ Page
 
                 onClicked:
                 {
-                    console.debug("Landscape PlayPause button clicked");
-
                     if (imgPlayL.visible)
                     {
                         imgPlayP.visible = false;
@@ -323,8 +321,6 @@ Page
 
                 onClicked:
                 {
-                    console.debug("Portrait PlayPause button clicked");
-
                     if (imgPlayP.visible)
                     {
                         imgPlayP.visible = false;

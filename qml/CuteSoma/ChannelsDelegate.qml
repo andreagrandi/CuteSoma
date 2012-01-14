@@ -98,8 +98,6 @@ Component
             anchors.right: parent.right
         }
 
-        //ChannelPlayer {id: channelPlayer }
-
         MouseArea
         {
             id: mouseArea
