@@ -219,10 +219,10 @@ Page
             {
                 id: radioImageP
                 source: model ? (model.channelImageBig === "" ? model.channelImage : model.channelImageBig) : ""
-                width: 600
-                height: 600
-                sourceSize.height: 600
-                sourceSize.width: 600
+                width: 400
+                height: 400
+                sourceSize.height: 400
+                sourceSize.width: 400
                 asynchronous: true
                 smooth: true
                 anchors.top: parent.top

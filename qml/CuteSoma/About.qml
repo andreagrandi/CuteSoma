@@ -28,7 +28,7 @@ Page
 
         Label
         {
-            text: "Soma.fm client for MeeGo"
+            text: "Soma.fm client for BlackBerry 10"
             font.pixelSize: 34
             anchors.horizontalCenter: parent.horizontalCenter
         }

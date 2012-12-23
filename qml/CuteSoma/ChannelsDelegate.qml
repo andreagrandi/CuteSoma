@@ -8,8 +8,8 @@ Component
     Rectangle
     {
         width: mainPage.width
-        height: 100
-        color: "#f0f1f2"
+        height: 130
+        //color: "#f0f1f2"
         id: channels
 
         BorderImage
@@ -24,14 +24,14 @@ Component
         {
             id: thumb
             source: channelImage
-            sourceSize.height: 90
-            sourceSize.width: 90
+            sourceSize.height: 120
+            sourceSize.width: 120
             asynchronous: true
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 5
-            width:90
-            height: 90
+            width:120
+            height: 120
         }
 
         Image
@@ -93,7 +93,7 @@ Component
         {
             anchors.bottom: parent.bottom
             height: 1
-            color: "#e4e5e7"
+            //color: "#e4e5e7"
             anchors.left: parent.left
             anchors.right: parent.right
         }
