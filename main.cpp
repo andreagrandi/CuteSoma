@@ -2,11 +2,13 @@
 #include <QtDeclarative>
 #include "qmlapplicationviewer.h"
 #include "servercomm.h"
+#include <QDebug>
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QScopedPointer<QApplication> app(createApplication(argc, argv));
 
+    qDebug("CuteSoma started");
     ServerComm sc;
     QmlApplicationViewer viewer;
     viewer.rootContext()->setContextProperty("serverComm", &sc);

@@ -1,5 +1,5 @@
 import QtQuick 1.0
-import com.nokia.meego 1.0
+import com.nokia.symbian 1.1
 
 PageStackWindow
 {
@@ -17,9 +17,9 @@ PageStackWindow
         id: commonTools
         visible: true
 
-        ToolIcon
+        ToolButton
         {
-            platformIconId: "toolbar-view-menu";
+            iconSource: "toolbar-view-menu";
             anchors.right: parent===undefined ? undefined : parent.right
             onClicked: (myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()
         }
@@ -27,7 +27,6 @@ PageStackWindow
         BusyIndicator
         {
             id: channelLoadingIndicator
-            platformStyle: BusyIndicatorStyle { size: "small" }
             running: true
             visible: false
             anchors.centerIn: parent

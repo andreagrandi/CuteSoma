@@ -1,5 +1,5 @@
 import QtQuick 1.0
-import com.nokia.meego 1.0
+import com.nokia.symbian 1.1
 
 Page {
     id: mainPage
@@ -39,6 +39,4 @@ Page {
          anchors.right: parent.right
          anchors.bottom: parent.bottom
     }
-
-
 }

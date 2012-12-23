@@ -1,5 +1,5 @@
 import QtQuick 1.0
-import com.nokia.meego 1.0
+import com.nokia.symbian 1.1
 
 Page
 {
@@ -75,10 +75,10 @@ Page
             {
                 id: radioImageL
                 source: model ? (model.channelImageBig === "" ? model.channelImage : model.channelImageBig) : ""
-                width: 310
-                height: 310
-                sourceSize.width: 310
-                sourceSize.height: 310
+                width: 500
+                height: 500
+                sourceSize.width: 500
+                sourceSize.height: 500
                 asynchronous: true
                 smooth: true
                 anchors.left: parent.left
@@ -134,7 +134,7 @@ Page
                 {
                     id: songLabelL
                     text: model ? model.song : ""
-                    font.pixelSize: 25;
+                    font.pixelSize: 30;
                     font.weight: Font.Bold;
                     anchors.top: listenersLabelL.bottom
                     anchors.topMargin: 10
@@ -219,10 +219,10 @@ Page
             {
                 id: radioImageP
                 source: model ? (model.channelImageBig === "" ? model.channelImage : model.channelImageBig) : ""
-                width: 400
-                height: 400
-                sourceSize.height: 400
-                sourceSize.width: 400
+                width: 600
+                height: 600
+                sourceSize.height: 600
+                sourceSize.width: 600
                 asynchronous: true
                 smooth: true
                 anchors.top: parent.top
@@ -282,7 +282,7 @@ Page
                 {
                     id: songLabelP
                     text: model ? model.song : ""
-                    font.pixelSize: 25;
+                    font.pixelSize: 30;
                     font.weight: Font.Bold;
                     anchors.top: listenersLabelP.bottom
                     anchors.topMargin: 10
@@ -386,12 +386,12 @@ Page
     {
             id: backMenuTool
             visible: true
-            ToolIcon { iconId: "toolbar-back"; onClicked: { pageStack.pop(); } }
+            ToolButton { iconSource: "toolbar-back"; onClicked: { pageStack.pop(); } }
 
             BusyIndicator
             {
                 id: indicator
-                platformStyle: BusyIndicatorStyle { size: "small" }
+                //platformStyle: BusyIndicatorStyle { size: "small" }
                 running: true
                 visible: true
                 anchors.centerIn: parent

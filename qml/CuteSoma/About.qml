@@ -1,5 +1,5 @@
 import QtQuick 1.0
-import com.nokia.meego 1.0
+import com.nokia.symbian 1.1
 
 Page
 {
@@ -20,7 +20,7 @@ Page
 
         Label
         {
-            text: "CuteSoma 0.2.1"
+            text: "CuteSoma 1.0.0"
             font.pixelSize: 38
             font.weight: Font.Bold;
             anchors.horizontalCenter: parent.horizontalCenter
@@ -56,6 +56,6 @@ Page
     {
             id: backMenuTool
             visible: true
-            ToolIcon { iconId: "toolbar-back"; onClicked: { pageStack.pop(); } }
+            ToolButton { iconSource: "toolbar-back"; onClicked: { pageStack.pop(); } }
     }
 }
