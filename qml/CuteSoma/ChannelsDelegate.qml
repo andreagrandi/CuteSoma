@@ -9,16 +9,16 @@ Component
     {
         width: mainPage.width
         height: 130
-        //color: "#f0f1f2"
+        color: "black"
         id: channels
 
-        BorderImage
+        /*BorderImage
         {
             id: background
             anchors.fill: parent
             visible: mouseArea.pressed
             source: "image://theme/meegotouch-list-background-pressed-center"
-        }
+        }*/
 
         Image
         {
@@ -93,7 +93,7 @@ Component
         {
             anchors.bottom: parent.bottom
             height: 1
-            //color: "#e4e5e7"
+            color: "#e4e5e7"
             anchors.left: parent.left
             anchors.right: parent.right
         }
