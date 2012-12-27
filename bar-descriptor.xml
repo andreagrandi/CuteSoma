@@ -22,4 +22,16 @@
     <asset path="CuteSoma" type="Qnx/Elf" entry="true">CuteSoma</asset>
     <asset path="%SRC_DIR%/imports/">imports</asset>
     <asset path="%SRC_DIR%/qml/CuteSoma/">qml/CuteSoma</asset>
+
+    <asset path="%SRC_DIR%/CuteSoma_180x180.png">CuteSoma_180x180.png</asset>
+
+    <!--
+    <asset path="/mnt/hgfs/home/svn/projects/mobile/meego/meebay/trunk/bb10-landscape.png">bb10-landscape.png</asset>
+    <asset path="/mnt/hgfs/home/svn/projects/mobile/meego/meebay/trunk/bb10-portrait.png">bb10-portrait.png</asset>
+    <splashscreen>bb10-landscape.png:bb10-portrait.png</splashscreen>
+    -->
+
+    <icon>
+            <image>CuteSoma_180x180.png</image>
+    </icon>
 </qnx>
