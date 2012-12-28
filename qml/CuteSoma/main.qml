@@ -5,6 +5,7 @@ PageStackWindow
 {
     id: appWindow
     initialPage: mainPage
+    showStatusBar: false
 
     MainPage { id: mainPage }
 
