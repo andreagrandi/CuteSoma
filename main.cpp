@@ -6,6 +6,7 @@
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
+    QApplication::setStartDragDistance(16);
     QScopedPointer<QApplication> app(createApplication(argc, argv));
 
     qDebug("CuteSoma started");
