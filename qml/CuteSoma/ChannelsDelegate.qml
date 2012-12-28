@@ -8,7 +8,7 @@ Component
     Rectangle
     {
         width: mainPage.width
-        height: 130
+        height: 200
         color: "black"
         id: channels
 
@@ -24,14 +24,14 @@ Component
         {
             id: thumb
             source: channelImage
-            sourceSize.height: 120
-            sourceSize.width: 120
+            sourceSize.height: 180
+            sourceSize.width: 180
             asynchronous: true
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.leftMargin: 5
-            width:120
-            height: 120
+            anchors.leftMargin: 0
+            width: 180
+            height: 180
         }
 
         Image
@@ -50,13 +50,13 @@ Component
             anchors.right: arrow.left
             anchors.rightMargin: 10
             anchors.left: thumb.right
-            anchors.leftMargin: 10
-            spacing: 2
+            anchors.leftMargin: 20
+            spacing: 4
 
             Label
             {
                 text: channelName;
-                font.pixelSize: 22;
+                font.pixelSize: 44;
                 font.weight: Font.Bold;
                 maximumLineCount: 1
                 elide: Text.ElideRight
@@ -67,7 +67,7 @@ Component
             Label
             {
                 text: channelDescription;
-                font.pixelSize: 16;
+                font.pixelSize: 32;
                 font.weight: Font.Light;
                 maximumLineCount: 2
                 elide: Text.ElideRight
@@ -79,7 +79,7 @@ Component
             Label
             {
                 text: song;
-                font.pixelSize: 16;
+                font.pixelSize: 32;
                 font.weight: Font.Bold;
                 maximumLineCount: 1
                 elide: Text.ElideRight
