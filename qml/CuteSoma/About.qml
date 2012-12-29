@@ -14,14 +14,14 @@ Page
 
         Image
         {
-            source: "qrc:/CuteSoma_180x180.png"
+            source: "qrc:/CuteSoma_500x500.png"
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Label
         {
             text: "CuteSoma 1.0.0"
-            font.pixelSize: 38
+            font.pixelSize: 48
             font.weight: Font.Bold;
             anchors.horizontalCenter: parent.horizontalCenter
         }

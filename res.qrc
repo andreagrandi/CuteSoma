@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>CuteSoma_180x180.png</file>
+        <file>CuteSoma_500x500.png</file>
     </qresource>
 </RCC>
