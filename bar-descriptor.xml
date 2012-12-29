@@ -8,22 +8,27 @@
         <systemChrome>none</systemChrome>
         <transparent>false</transparent>
         <autoOrients>false</autoOrients>
-        <aspectRatio>landscape</aspectRatio>
+        <aspectRatio>portrait</aspectRatio>
     </initialWindow>
     <publisher>Andrea Grandi</publisher>
     <copyright>Copyright 2012 - Andrea Grandi</copyright>
     <env value="app/native/imports" var="QML_IMPORT_PATH"/>
     <env value="app/native/plugins:/usr/lib/qt4/plugins" var="QT_PLUGIN_PATH"/>
     <env value="app/native/lib:/usr/lib/qt4/lib/" var="LD_LIBRARY_PATH"/>
+    
+    <!-- No style needed for QML -->
+    <!--
     <arg>-style</arg>
     <arg>qnxlight</arg>
+    -->
+
     <action system="true">run_native</action>
     <!-- PROJECTPATH should point to the project binary, path can be relative -->
     <asset path="CuteSoma" type="Qnx/Elf" entry="true">CuteSoma</asset>
-    <asset path="%SRC_DIR%/imports/">imports</asset>
-    <asset path="%SRC_DIR%/qml/CuteSoma/">qml/CuteSoma</asset>
+    <asset path="imports/">imports</asset>
+    <asset path="qml/CuteSoma/">qml/CuteSoma</asset>
 
-    <asset path="%SRC_DIR%/CuteSoma_180x180.png">CuteSoma_180x180.png</asset>
+    <asset path="CuteSoma_180x180.png">CuteSoma_180x180.png</asset>
 
     <!--
     <asset path="/mnt/hgfs/home/svn/projects/mobile/meego/meebay/trunk/bb10-landscape.png">bb10-landscape.png</asset>
