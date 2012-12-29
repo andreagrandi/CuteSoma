@@ -232,6 +232,7 @@ Page
 
             Item
             {
+                id: songDataP
                 anchors.top: radioImageP.bottom
                 anchors.topMargin: 10
                 anchors.left: parent.left
@@ -259,103 +260,71 @@ Page
 
                 Label
                 {
-                    id: descriptionLabelP
-                    text: model ? model.channelDescription : ""
-                    font.pixelSize: 25;
-                    font.weight: Font.Light;
-                    width: channelPlayer.width - 20
-                    wrapMode: "WordWrap";
-                    anchors.top: djLabelP.bottom
-                    anchors.topMargin: 10
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-
-                Label
-                {
-                    id: listenersLabelP
-                    text: "Listeners: " + (model ? model.channelListeners : "")
-                    font.pixelSize: 25;
-                    font.weight: Font.Light;
-                    anchors.top: descriptionLabelP.bottom
-                    anchors.topMargin: 10
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-
-                Label
-                {
                     id: songLabelP
                     text: model ? model.song : ""
                     font.pixelSize: 46;
                     font.weight: Font.Bold;
-                    anchors.top: listenersLabelP.bottom
+                    anchors.top: djLabelP.bottom
                     anchors.topMargin: 10
                     anchors.horizontalCenter: parent.horizontalCenter
                     wrapMode: "WordWrap"
                 }
-            }
-        }
 
-        Item
-        {
-            id: controlRowP
-            anchors.top: songItemP.bottom
-            anchors.topMargin: 30
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 100
-            height: 100
-
-            Button
-            {
-                id: playStopButtonP
-
-                Image
+                Button
                 {
-                    id: imgPlayP
-                    anchors.centerIn: parent
-                    visible: false
-                    source: privateStyle.imagePath("toolbar-mediacontrol-play")
-                }
+                    id: playStopButtonP
+                    anchors.top: songLabelP.bottom
+                    anchors.topMargin: 30
+                    anchors.horizontalCenter: parent.horizontalCenter
 
-                Image
-                {
-                    id: imgPauseP
-                    anchors.centerIn: parent
-                    source: privateStyle.imagePath("toolbar-mediacontrol-pause")
-                }
-
-                onClicked:
-                {
-                    if (imgPlayP.visible)
+                    Image
                     {
-                        imgPlayP.visible = false;
-                        imgPauseP.visible = true;
-                        imgPlayL.visible = false;
-                        imgPauseL.visible = true;
-
-                        serverComm.play();
+                        id: imgPlayP
+                        anchors.centerIn: parent
+                        visible: false
+                        source: privateStyle.imagePath("toolbar-mediacontrol-play")
                     }
-                    else
-                    {
-                        imgPlayP.visible = true;
-                        imgPauseP.visible = false;
-                        imgPlayL.visible = true;
-                        imgPauseL.visible = false;
 
-                        serverComm.pause();
+                    Image
+                    {
+                        id: imgPauseP
+                        anchors.centerIn: parent
+                        source: privateStyle.imagePath("toolbar-mediacontrol-pause")
+                    }
+
+                    onClicked:
+                    {
+                        if (imgPlayP.visible)
+                        {
+                            imgPlayP.visible = false;
+                            imgPauseP.visible = true;
+                            imgPlayL.visible = false;
+                            imgPauseL.visible = true;
+
+                            serverComm.play();
+                        }
+                        else
+                        {
+                            imgPlayP.visible = true;
+                            imgPauseP.visible = false;
+                            imgPlayL.visible = true;
+                            imgPauseL.visible = false;
+
+                            serverComm.pause();
+                        }
                     }
                 }
-            }
 
-            Label
-            {
-                id: counterLabelP
-                text: "00:00"
-                anchors.top: playStopButtonP.bottom
-                anchors.topMargin: 15
-                anchors.horizontalCenter: parent.horizontalCenter
+                Label
+                {
+                    id: counterLabelP
+                    text: "00:00"
+                    anchors.top: playStopButtonP.bottom
+                    anchors.topMargin: 15
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
             }
         }
-
     }
 
     states: [
@@ -394,7 +363,6 @@ Page
             BusyIndicator
             {
                 id: indicator
-                //platformStyle: BusyIndicatorStyle { size: "small" }
                 running: true
                 visible: true
                 anchors.centerIn: parent
