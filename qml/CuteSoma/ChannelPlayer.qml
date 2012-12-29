@@ -159,14 +159,14 @@ Page
                     id: imgPlayL
                     anchors.centerIn: parent
                     visible: false
-                    source: "image://theme/icon-m-toolbar-mediacontrol-play" + (theme.inverted ? "-inverse" : "")
+                    source: privateStyle.imagePath("toolbar-mediacontrol-play")
                 }
 
                 Image
                 {
                     id: imgPauseL
                     anchors.centerIn: parent
-                    source: "image://theme/icon-m-toolbar-mediacontrol-pause" + (theme.inverted ? "-inverse" : "")
+                    source: privateStyle.imagePath("toolbar-mediacontrol-pause")
                 }
 
                 onClicked:
@@ -309,14 +309,14 @@ Page
                     id: imgPlayP
                     anchors.centerIn: parent
                     visible: false
-                    source: "image://theme/icon-m-toolbar-mediacontrol-play" + (theme.inverted ? "-inverse" : "")
+                    source: privateStyle.imagePath("toolbar-mediacontrol-play")
                 }
 
                 Image
                 {
                     id: imgPauseP
                     anchors.centerIn: parent
-                    source: "image://theme/icon-m-toolbar-mediacontrol-pause" + (theme.inverted ? "-inverse" : "")
+                    source: privateStyle.imagePath("toolbar-mediacontrol-pause")
                 }
 
                 onClicked:
