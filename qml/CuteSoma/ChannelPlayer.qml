@@ -206,29 +206,28 @@ Page
     {
         id: channelPortraitLayout
         visible: false
-        anchors.verticalCenterOffset: 5
-        anchors.left: parent.left
+        anchors.horizontalCenter: parent.horizontalCenter
 
         Item
         {
             id: songItemP
             anchors.top: parent.bottom
             anchors.topMargin: 10
+            anchors.horizontalCenter: parent.horizontalCenter
 
             Image
             {
                 id: radioImageP
                 source: model ? (model.channelImageBig === "" ? model.channelImage : model.channelImageBig) : ""
-                width: 400
-                height: 400
-                sourceSize.height: 400
-                sourceSize.width: 400
+                width: 680
+                height: 680
+                sourceSize.height: 680
+                sourceSize.width: 680
                 asynchronous: true
                 smooth: true
                 anchors.top: parent.top
                 anchors.topMargin: 10
-                anchors.left: parent.left
-                anchors.leftMargin: 40
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Item
@@ -242,8 +241,9 @@ Page
                 {
                     id: nameLabelP
                     text: model ? model.channelName : ""
-                    font.pixelSize: 34;
+                    font.pixelSize: 48;
                     font.weight: Font.Bold;
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
 
                 Label
@@ -254,6 +254,7 @@ Page
                     font.weight: Font.Light;
                     anchors.top: nameLabelP.bottom
                     anchors.topMargin: 10
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
 
                 Label
@@ -266,6 +267,7 @@ Page
                     wrapMode: "WordWrap";
                     anchors.top: djLabelP.bottom
                     anchors.topMargin: 10
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
 
                 Label
@@ -276,17 +278,18 @@ Page
                     font.weight: Font.Light;
                     anchors.top: descriptionLabelP.bottom
                     anchors.topMargin: 10
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
 
                 Label
                 {
                     id: songLabelP
                     text: model ? model.song : ""
-                    font.pixelSize: 30;
+                    font.pixelSize: 46;
                     font.weight: Font.Bold;
                     anchors.top: listenersLabelP.bottom
                     anchors.topMargin: 10
-                    width: channelPlayer.width - 30
+                    anchors.horizontalCenter: parent.horizontalCenter
                     wrapMode: "WordWrap"
                 }
             }
@@ -295,10 +298,11 @@ Page
         Item
         {
             id: controlRowP
-            anchors.top: parent.top
-            anchors.topMargin: 690
-            anchors.left: parent.left
-            anchors.leftMargin: 15
+            anchors.top: songItemP.bottom
+            anchors.topMargin: 30
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 100
+            height: 100
 
             Button
             {
@@ -346,10 +350,9 @@ Page
             {
                 id: counterLabelP
                 text: "00:00"
-                anchors.left: playStopButtonP.right
-                anchors.leftMargin: 50
-                anchors.top: parent.top
+                anchors.top: playStopButtonP.bottom
                 anchors.topMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
             }
         }
 
