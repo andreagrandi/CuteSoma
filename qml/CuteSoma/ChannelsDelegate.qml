@@ -37,8 +37,10 @@ Component
         Image
         {
             id: arrow
-            source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
-            anchors.right: parent.right;
+            source: privateStyle.imagePath("qtg_graf_drill_down_indicator")
+            width: 60
+            height: 60
+            anchors.right: parent.right
             anchors.rightMargin: 5
             anchors.verticalCenter: parent.verticalCenter
         }
