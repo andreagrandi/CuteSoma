@@ -276,6 +276,8 @@ Page
                     anchors.top: songLabelP.bottom
                     anchors.topMargin: 30
                     anchors.horizontalCenter: parent.horizontalCenter
+                    width: 120
+                    height: 120
 
                     Image
                     {
