@@ -12,13 +12,13 @@ Component
         color: "black"
         id: channels
 
-        /*BorderImage
+        BorderImage
         {
             id: background
             anchors.fill: parent
             visible: mouseArea.pressed
-            source: "image://theme/meegotouch-list-background-pressed-center"
-        }*/
+            source: privateStyle.imagePath("list-background-pressed-center")
+        }
 
         Image
         {
