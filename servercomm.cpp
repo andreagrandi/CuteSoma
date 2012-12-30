@@ -80,17 +80,14 @@ void ServerComm::updateProgress(qint64 time)
 void ServerComm::setMediaStatus(QMediaPlayer::MediaStatus state)
 {
     switch (state) {
-    case QMediaPlayer::BufferingMedia:
-        channelLoading();
-        break;
+    case QMediaPlayer::LoadedMedia:
     case QMediaPlayer::BufferedMedia:
-        channelLoaded();
-        break;
-    case QMediaPlayer::LoadingMedia:
-        channelLoading();
+        emit channelLoaded();
         break;
     case QMediaPlayer::StalledMedia:
-        channelLoading();
+    case QMediaPlayer::BufferingMedia:
+    case QMediaPlayer::LoadingMedia:
+        emit channelLoading();
         break;
     default:
         break;
