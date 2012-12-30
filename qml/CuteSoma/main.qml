@@ -46,11 +46,6 @@ PageStackWindow
                 text: "About"
                 onClicked: { pageStack.push(aboutPage); }
             }
-            MenuItem
-            {
-                text: "Quit"
-                onClicked: Qt.quit()
-            }
         }
     }
 }
