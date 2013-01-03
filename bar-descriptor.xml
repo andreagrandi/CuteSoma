@@ -2,8 +2,8 @@
 <qnx xmlns="http://www.qnx.com/schemas/application/1.0">
     <id>org.andreagrandi.cutesoma</id>
     <name>CuteSoma</name>
-    <versionNumber>1.0.0</versionNumber>
-    <description>Soma.fm client for BlackBerry10</description>
+    <versionNumber>1.0.1</versionNumber>
+    <description>Soma.fm client for BlackBerry 10</description>
     <initialWindow>
         <systemChrome>none</systemChrome>
         <transparent>false</transparent>

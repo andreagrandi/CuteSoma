@@ -12,13 +12,13 @@ Component
         color: "black"
         id: channels
 
-        BorderImage
+        /*BorderImage
         {
             id: background
             anchors.fill: parent
             visible: mouseArea.pressed
             source: privateStyle.imagePath("list-background-pressed-center")
-        }
+        }*/
 
         Image
         {
