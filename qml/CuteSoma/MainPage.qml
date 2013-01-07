@@ -31,6 +31,7 @@ Page {
     ListView
     {
          id: channelsView
+         cacheBuffer: 6000
          model: ChannelsModel {}
          delegate: ChannelsDelegate {}
          clip: true
