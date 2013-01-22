@@ -15,6 +15,7 @@
     <env value="app/native/imports" var="QML_IMPORT_PATH"/>
     <env value="app/native/plugins:/usr/lib/qt4/plugins" var="QT_PLUGIN_PATH"/>
     <env value="app/native/lib:/usr/lib/qt4/lib/" var="LD_LIBRARY_PATH"/>
+    <env var="QBB_USE_OPENGL" value="1"/>
     
     <action system="true">run_native</action>
  
